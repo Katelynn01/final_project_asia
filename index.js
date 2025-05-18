@@ -2,14 +2,17 @@ import express from "express";
 import bodyParser from "body-parser";
 
 import { connect } from "./connectDb.js";
+import { rateLimiter } from "./rateLimiter.js";
+import { JWT } from "./authenticate.js";
 
 const app = express();
 const db = connect();
 
 app.use(bodyParser.json());
+app.use(rateLimiter);
 app.use(express.urlencoded({ extended : true }));
 
-app.post("/posts",  (req, res) => {
+app.post("/posts", JWT, (req, res) => {
     const body = req.body;
     const title = body.title;
     const content = body.content;
@@ -26,7 +29,7 @@ app.post("/posts",  (req, res) => {
       })
 });
 
-app.get("/posts",  (req, res) => {
+app.get("/posts", JWT,  (req, res) => {
     db.any("SELECT * FROM post")
       .then((data) => {
         res.json(data);
@@ -37,7 +40,7 @@ app.get("/posts",  (req, res) => {
 
 });
 
-app.get("/posts/:id",  (req, res) => {
+app.get("/posts/:id", JWT,  (req, res) => {
     const id = req.params.id;
 
     db.one("SELECT * FROM post WHERE id = $1", [id])
@@ -55,7 +58,7 @@ app.get("/posts/:id",  (req, res) => {
 
 });
 
-app.put("/posts/:id",  (req, res) => {
+app.put("/posts/:id", JWT,  (req, res) => {
     const id = req.params.id;
     
     const body = req.body;
@@ -75,7 +78,7 @@ app.put("/posts/:id",  (req, res) => {
       });
 });
 
-app.delete("/posts/:id",  (req, res) => {
+app.delete("/posts/:id", JWT,  (req, res) => {
     const id = req.params.id;
 
     db.none("DELETE FROM post WHERE id = ${id}", {
