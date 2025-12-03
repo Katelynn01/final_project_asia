@@ -12,6 +12,10 @@ app.use(bodyParser.json());
 app.use(rateLimiter);
 app.use(express.urlencoded({ extended : true }));
 
+app.get("/", (req, res) => {
+    res.sendFile('/opt/render/project/src/index.html');
+});
+
 app.post("/posts", JWT, (req, res) => {
     const body = req.body;
     const title = body.title;
