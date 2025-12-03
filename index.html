@@ -13,18 +13,50 @@
     </style>
 </head>
 
-<body class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 min-h-screen flex items-center justify-center">
+<body class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 min-h-screen">
 
-    <div class="bg-white p-10 rounded-lg shadow-xl max-w-md w-full text-center">
-        <h1 class="text-4xl font-semibold text-gray-800 mb-6">Katelyn Sanggalang</h1> 
-        <p class="text-lg text-gray-600 mb-6">Class Section: NT-4101</p> 
+    <!-- Navbar -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+            <div class="relative flex items-center justify-between h-16">
+                <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                    <!-- Mobile menu button-->
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                    <div class="flex-shrink-0 text-xl font-semibold text-purple-600">
+                        My Personal Info
+                    </div>
+                    <div class="hidden sm:block sm:ml-6">
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-600 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                            <a href="#about" class="text-gray-600 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium">About</a>
+                            <a href="#contact" class="text-gray-600 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-        <blockquote class="italic text-gray-700 mb-6">
-            "When something is important enough, you do it even if the odds are not in your favor." – Elon Musk
-        </blockquote>
+    <!-- Main Content -->
+    <div class="flex items-center justify-center min-h-screen">
+        <div class="bg-white p-10 rounded-lg shadow-xl max-w-md w-full text-center">
+            <h1 class="text-4xl font-semibold text-gray-800 mb-6">Katelyn Sanggalang</h1>
+            <p class="text-lg text-gray-600 mb-6">Class Section: NT-4101</p>
 
-        <div class="text-sm text-gray-500 mt-4">
-            <p>&copy; 2025</p>
+            <blockquote class="italic text-gray-700 mb-6">
+                "When something is important enough, you do it even if the odds are not in your favor." – Elon Musk
+            </blockquote>
+
+            <div class="text-sm text-gray-500 mt-4">
+                <p>&copy; 2025</p>
+            </div>
         </div>
     </div>
 
